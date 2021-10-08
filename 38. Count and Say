@@ -1,0 +1,23 @@
+def x(s):
+    ans = ""
+    s = s + "$"
+    n = len(s)
+    i = 1
+    count = 1
+    cur_str = s[0]
+    while i < n:
+        if cur_str == s[i]:
+            i += 1
+            count += 1
+        else:
+            ans = ans + str(count) + cur_str
+            cur_str = s[i]
+            i += 1
+            count = 1
+    return ans
+
+class Solution:
+    def countAndSay(self, n: int, ans = "1") -> str:
+        for i in range(n - 1):
+            ans = x(ans)
+        return ans
